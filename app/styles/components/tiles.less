@@ -1,0 +1,19 @@
+.tile {
+  @squareSize: (((@fieldWidth - (2 * @fieldPadding)) / 4) - (2 * @tileMargin));
+  @textLineHeight: @tileFontSize;
+  @topPadding: (@squareSize - @textLineHeight) / 2;
+
+  margin: @tileMargin;
+  height: @squareSize;
+  width: @squareSize;
+  display: inline-block;
+
+  background-color: @baseTileColor;
+  border-radius: @tileRoundCorners;
+
+  font-size: @tileFontSize;
+  line-height: @textLineHeight;
+  font-weight: bold;
+  padding-top: @topPadding;
+
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2048</title>
+
+    <link rel="stylesheet" href="/styles/main.css" />
+
+    <script src="/js/vendor/angular.js"></script>
+    <script src="/js/vendor/hotkeys/hotkeys.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body ng-app="2048Game">
+
+    <div class="jumbotron" ng-controller="fieldCtrl">
+
+        <h1 ng-click="test()" ng-bind="winningNumber"></h1>
+
+        <div class="game-container" shortcut="keyboard">
+            <!--<button ng-click="add()">Add number</button>-->
+            <!--<button ng-click="down()">Down</button>-->
+            <!--<button ng-click="up()">Up</button>-->
+            <!--<button ng-click="right()">Right</button>-->
+            <!--<button ng-click="left()">Left</button>-->
+
+            <hr />
+            <div id="field">
+                <div class="" ng-repeat="row in field.matrix">
+                    <div class="tile" tile="tile" winning-number="winningNumber" ng-repeat="tile in row track by $index" ng-bind="tile || '&nbsp;'"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="lose" ng-cloak ng-show="field.lose">
+            <div class="dialog">
+                <h3>You Lose!</h3>
+
+                <p>Try again by clicking reset</p>
+                <button ng-click="reset()">Reset</button>
+            </div>
+        </div>
+        <div id="win" ng-cloak ng-show="field.win">
+            <div class="dialog">
+                <h3>You Win!</h3>
+
+                <p>Great Job!</p>
+                <button ng-click="reset()">Reset</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
